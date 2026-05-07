@@ -86,6 +86,13 @@
           "target": [
             "Targetsampleview2"
           ]
+        },
+        {
+          "name": "Routesampleview3",
+          "pattern": "sampleview3",
+          "target": [
+            "Targetsampleview3"
+          ]
         }
       ],
       "targets": {
@@ -96,6 +103,10 @@
          "Targetsampleview2": {
           "id": "sampleview2",
           "name": "sampleview2"
+        },
+         "Targetsampleview3": {
+          "id": "sampleview3",
+          "name": "sampleview3"
         }
       }
     },

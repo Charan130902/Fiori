@@ -8,7 +8,12 @@ sap.ui.define([
         }, onBack: function () {
             var oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("Routesampleview1");
+        },
+        onAction:function () {
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("Routesampleview3");
         }
+        
         
     });
 });

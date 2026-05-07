@@ -1,6 +1,33 @@
-
-.myHBoxBg {
-    background-color: cadetblue;  
-    padding: 10px;
-    border-radius: 5px;
+/* Total row blue background */
+.sapMListTblRow[data-rowtype="total"] .sapMListTblCell {
+    background-color: #cfe8f3 !important;
 }
+ 
+/* Table header */
+.sapMListTblHeaderCell {
+    background-color: #f2f2f2 !important;
+    font-weight: bold;
+}
+ 
+/* 🔷 Apply borders to all table cells (vertical + horizontal) */
+.sapMListTblCell {
+    border-right: 1px solid #d9d9d9 !important;
+    border-bottom: 1px solid #d9d9d9 !important;
+}
+ 
+/* 🔷 Header borders */
+.sapMListTblHeaderCell {
+    border-right: 1px solid #d9d9d9 !important;
+    border-bottom: 1px solid #d9d9d9 !important;
+}
+ 
+ 
+/* Hide empty pop-in rows for total */
+.sapMListTblRow[data-rowtype="total"] + .sapMListTblSubRow {
+    display: none !important;
+}
+ 
+.sapMListTblRow[data-rowtype="total"] .sapMText {
+    font-weight: bold !important;
+}
+ 

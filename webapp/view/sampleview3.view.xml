@@ -1,0 +1,189 @@
+
+    <mvc:View controllerName="com.samplescreen.controller.sampleview3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:core="sap.ui.core">
+ 
+    <Page  >
+        <content>
+            <VBox >
+ 
+                <HBox width="100%" justifyContent="SpaceBetween" alignItems="Center" class="sapUiTinyMarginBottom sapUiTinyMarginTop">
+ 
+                    <Text text="{i18n>welcome} : {/userName}"/>
+                    <Text text="{i18n>system} : {/systemName}"/>
+                    <Text text="{i18n>dateTime} : {/currentDateTime}"/>
+                </HBox>
+                <Bar>
+                    <contentLeft>
+                        <Button icon="sap-icon://nav-back" type="Transparent" press="onBack"/>
+                    </contentLeft>
+                    <contentMiddle>
+                        <Title text="{i18n>title}"/>
+                    </contentMiddle>
+                </Bar>
+ 
+                <fb:FilterBar id="idFilterBar" useToolbar="false" showGoOnFB="true" showClearOnFB="true" showFilterConfiguration="true" search="onSearch" clear="onClear" class="myFilterBar">
+ 
+                    <fb:filterGroupItems>
+ 
+                        <fb:FilterGroupItem name="Office" label="{i18n>office}" groupName="G1" visibleInFilterBar="true">
+                            <fb:control>
+                                <ComboBox id="idOfficeFilter" items="{/officeList}">
+                                    <core:Item key="{key}" text="{text}"/>
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+ 
+                        <fb:FilterGroupItem name="Order" label="{i18n>order}" groupName="G1" visibleInFilterBar="true">
+                            <fb:control>
+                                <ComboBox id="idOrderFilter" items="{/orderList}">
+                                    <core:Item key="{key}" text="{text}"/>
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+ 
+                        <fb:FilterGroupItem name="OrderQuantity" label="{i18n>orderQuantity}" groupName="G1" visibleInFilterBar="true">
+                            <fb:control>
+                                <ComboBox id="idQuantityFilter" items="{/quantityList}">
+                                    <core:Item key="{key}" text="{text}"/>
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+ 
+                        <fb:FilterGroupItem name="Status" label="{i18n>status}" groupName="G1" visibleInFilterBar="true">
+                            <fb:control>
+                                <ComboBox id="idStatusFilter" items="{/statusList}">
+                                    <core:Item key="{key}" text="{text}"/>
+                                </ComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+ 
+                        <fb:FilterGroupItem name="Grant" label="{i18n>grant}" groupName="G1" visibleInFilterBar="true">
+                            <fb:control>
+                                <Input id="idGrantFilter"/>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+ 
+                    </fb:filterGroupItems>
+                </fb:FilterBar>
+ 
+                <Toolbar>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://download" type="Emphasized"/>
+                    <Button icon="sap-icon://action-settings" type="Emphasized"/>
+                </Toolbar>
+ 
+ 
+ 
+                <Table id="idChargeBackTable" width="100%" items="{/chargeBackData}" autoPopinMode="true" growing="true" growingThreshold="10">
+ 
+                    <columns>
+ 
+                        <!-- Always visible -->
+                        <Column width="10rem">
+                            <Text text="{i18n>office}" />
+                        </Column>
+ 
+                        <!-- Tablet & above -->
+                        <Column importance="High" width="11rem">
+                            <Text text="{i18n>order}"/>
+                        </Column>
+ 
+                        <Column importance="High" hAlign="End">
+                            <Text text="{i18n>orderItemAmount}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End" width="6rem">
+                            <Text text="{i18n>orderQuantity}"/>
+                        </Column>
+ 
+                        <!-- Desktop & above -->
+                        <Column minScreenWidth="Desktop" demandPopin="true">
+                            <Text text="{i18n>status}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true">
+                            <Text text="{i18n>dfr}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true" width="6rem">
+                            <Text text="{i18n>prqDifference}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true" width="6rem">
+                            <Text text="{i18n>poDifference}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true" width="6rem">
+                            <Text text="{i18n>grant}"/>
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End" width="6rem">
+                            <Text text="{i18n>grantExpDays}" />
+                        </Column>
+ 
+                        <Column minScreenWidth="Desktop" demandPopin="true">
+                            <Text text="{i18n>fundsCommitment}"/>
+                        </Column>
+ 
+                    </columns>
+ 
+                    <items>
+                        <ColumnListItem type="Inactive">
+ 
+                            <customData>
+                                <core:CustomData key="rowtype" value="{rowType}" writeToDom="true"/>
+                            </customData>
+ 
+                            <cells>
+                                <!-- Office -->
+                                <Text text="{office}" wrapping="false"/>
+ 
+                                <!-- Order + Icon -->
+                                <HBox alignItems="Center">
+                                    <Text text="{order}" wrapping="false"/>
+                                    <core:Icon src="sap-icon://display" visible="{= ${rowType} === 'data' }" press="onDisplayPress" color="#0a6ed1" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                                </HBox>
+ 
+                                <!-- Order Item Amount -->
+                                <Text text="{amount}"/>
+ 
+                                <!-- Order Quantity -->
+                                <Text text="{quantity}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- Status -->
+                                <ObjectStatus text="{status}" state="{path: 'status', formatter: '.formatStatusColor'}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- DFR -->
+                                <Link text="{dfr}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- PRQ Difference -->
+                                <Text text="{prqDifference}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- PO Difference -->
+                                <Text text="{poDifference}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- Grant -->
+                                <Text text="{grant}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- Grant Exp. Days -->
+                                <ObjectStatus text="{grantExpDays}" state="{path: 'grantExpDays', formatter: '.formatGrantColor'}" visible="{= ${rowType} === 'data' }"/>
+ 
+                                <!-- Funds Commitment -->
+                                <Text text="{fundsCommitment}" visible="{= ${rowType} === 'data' }"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+ 
+                </Table>
+ 
+ 
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
+
+
+   

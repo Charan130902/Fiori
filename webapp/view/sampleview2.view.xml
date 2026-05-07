@@ -18,7 +18,7 @@
                 <Button icon="sap-icon://home" type="Emphasized" />
                 <Button icon="sap-icon://document" type="Emphasized" />
                 <Button icon="sap-icon://edit" type="Emphasized" />
-                <Button icon="sap-icon://action" type="Emphasized" />
+                <Button icon="sap-icon://action" type="Emphasized" press="onAction"/>
 
             </Toolbar>
         </customHeader>
