@@ -1,0 +1,169 @@
+<mvc:View controllerName="com.samplescreen.controller.sampleview2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form" displayBlock="true">
+
+    <Page >
+        <customHeader>
+            <Toolbar>
+                <Button text="Back" type="Back" press="onBack" />
+
+
+                <ToolbarSpacer />
+                <Title text="Customer Contract Creation" />
+                <ToolbarSpacer />
+
+
+                <Button icon="sap-icon://home" type="Emphasized" />
+                <Button icon="sap-icon://document" type="Emphasized" />
+                <Button icon="sap-icon://edit" type="Emphasized" />
+                <Button icon="sap-icon://action" type="Emphasized" />
+
+            </Toolbar>
+        </customHeader>
+
+        <content>
+            <HBox justifyContent="SpaceBetween" width="100%" >
+
+               
+                <Button text="Contract" type="Success" />
+                <Button text="Line Item 1" type="Emphasized" class="sapUiSmallMarginBegin" />
+                <Button text="Line Item 2" type="Emphasized" class="sapUiSmallMarginBegin" />
+                <Button text="Line Item 3" type="Emphasized" class="sapUiSmallMarginBegin" />
+                <Button text="Line Item 4" type="Emphasized" class="sapUiSmallMarginBegin" />
+                <Button text="Line Item 5" type="Emphasized" class="sapUiSmallMarginBegin" />
+                
+
+            </HBox>
+
+
+            <l:Grid defaultSpan="L6 M6 S12" class="sapUiSmallMarginTop">
+
+
+                <f:SimpleForm layout="ResponsiveGridLayout">
+
+                    <Label text="Valid From" required="true" />
+                    <DatePicker value="6/11/2025" />
+
+                    <Label text="Sold To Name" required="true" />
+                    <Input />
+
+                    <Label text="Sold To Address" />
+                    <Input />
+
+                    <Label text="Sold To State" />
+                    <Select />
+
+                    <Label text="Payer Number" />
+                    <Input />
+
+                    <Label text="Ship To / Job Name" required="true" />
+                    <Input />
+
+                    <Label text="PO Number" required="true" />
+                    <Input />
+
+                    <Label text="Ship To Address" />
+                    <Input />
+
+                    <Label text="Ship To State" required="true" />
+                    <Select />
+
+                    <Label text="County / District" required="true" />
+                    <Input />
+
+                    <Label text="Means of Transportation Type" required="true" />
+                    <Select />
+
+                    <Label text="Sales Office" required="true" />
+                    <Select />
+
+                    <Label text="Sales Organization" required="true" />
+                    <Select />
+
+                    <Label text="Incoterms" required="true" />
+                    <Select />
+
+                    <Label text="Currency" />
+                    <Select />
+
+                    <Label text="Invoice Text" />
+                    <Input />
+
+                </f:SimpleForm>
+
+
+                <f:SimpleForm layout="ResponsiveGridLayout">
+
+                    <Label text="Valid To" required="true" />
+                    <DatePicker value="12/31/10000" />
+
+                    <Label text="Sold To Number" />
+                    <Input />
+
+                    <Label text="Sold To City" />
+                    <Input />
+
+                    <Label text="Sold To Zip Code" />
+                    <Input />
+
+                    <Label text="Bill To Number" />
+                    <Input />
+
+                    <Label text="Plan Name" />
+                    <Select />
+
+                    <Label text="Job Number" />
+                    <Input />
+
+                    <Label text="Ship To City" required="true" />
+                    <Input />
+
+                    <Label text="Ship To Zip Code" required="true" />
+                    <Input />
+
+                    <Label text="Country" required="true" />
+                    <Select />
+
+                    <Label text="Taxable" />
+                    <Switch />
+
+                    <Label text="Sales Group" required="true" />
+                    <Select />
+
+                    <Label text="Distribution Channel" required="true" />
+                    <Select />
+
+                    <Label text="Split Criteria" required="true" />
+                    <Select />
+
+                    <Label text="Texas Lien Info" />
+                    <Select />
+
+                    <Label text="POD Relevant" />
+                    <Switch />
+
+                </f:SimpleForm>
+
+            </l:Grid>
+
+
+            <Toolbar >
+                <Button text="Save" type="Reject" />
+                <ToolbarSpacer />
+                <Button text="Save As Template" type="Reject" class="sapUiSmallMarginBegin" />
+                <ToolbarSpacer />
+
+                <Button text="Preview" type="Reject" class="sapUiSmallMarginBegin" />
+                <Button text="Submit to Admin" enabled="false" class="sapUiSmallMarginBegin" />
+                <Button text="Submit To Specialist" type="Reject" class="sapUiSmallMarginBegin" />
+
+
+
+            </Toolbar>
+
+        </content>
+
+    </Page>
+</mvc:View>

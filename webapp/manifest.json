@@ -1,0 +1,109 @@
+{
+  "_version": "1.83.0",
+  "sap.app": {
+    "id": "com.samplescreen",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.22.0",
+      "toolsId": "3421d1b5-e525-4205-a3ff-88b66bbf74e9"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.147.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.samplescreen.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.samplescreen.view",
+        "async": true,
+        "viewPath": "com.samplescreen.view"
+      },
+      "routes": [
+        {
+          "name": "Routesampleview1",
+          "pattern": ":?query:",
+          "target": [
+            "Targetsampleview1"
+          ]
+        },
+        {
+          "name": "Routesampleview2",
+          "pattern": "sampleview2",
+          "target": [
+            "Targetsampleview2"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetsampleview1": {
+          "id": "sampleview1",
+          "name": "sampleview1"
+        },
+         "Targetsampleview2": {
+          "id": "sampleview2",
+          "name": "sampleview2"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.samplescreen.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<mvc:View controllerName="com.samplescreen.controller.sampleview1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page title="Company Details" titleAlignment="Center">
+        <content>
+
+            <HBox justifyContent="End" width="100%">
+                <Button text="Next" type="Default" press="onPress" />
+            </HBox>
+            <f:SimpleForm layout="ResponsiveGridLayout" editable="true" labelSpanL="3" labelSpanM="3" columnsL="2" columnsM="2" backgroundDesign="Transparent">
+
+                <Label text="Company Code:" required="true"/>
+
+                <Input value="PA63" width="100%" showValueHelp="true" description="CHEP Pallecon Solutions Pty Ltd-New Zealand"/>
+
+
+
+                <Label text="Supplier Number:" required="true"/>
+
+                <Input value="AUSS900" width="100%" showValueHelp="true" description="AUSSIE WHOLESALE MEATS**DNU**"/>
+
+
+
+                <Label text="Invoice Type:" required="true"/>
+
+                <Input value="E" width="100%" showValueHelp="true" description="Inter Company Invoice"/>
+
+
+
+                <Label text="Date Range:"/>
+                <HBox>
+                    <DatePicker placeholder="Enter Date"/>
+                </HBox>
+
+                <Label text="Other Search Criteria:"/>
+                <HBox>
+                    <ComboBox width="200px"/>
+                </HBox>
+
+            </f:SimpleForm>
+
+            <HBox justifyContent="Center" class="sapUiMediumMarginTop">
+                <Button text="Search" type="Emphasized" icon="sap-icon://search"/>
+                <Button text="Clear" type="Reject" icon="sap-icon://decline" class="sapUiTinyMarginBegin"/>
+            </HBox>
+
+        </content>
+    </Page>
+
+</mvc:View>
