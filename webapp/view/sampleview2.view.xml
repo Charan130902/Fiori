@@ -1,169 +1,261 @@
-<mvc:View controllerName="com.samplescreen.controller.sampleview2"
+<mvc:View
+    controllerName="com.samplescreen.controller.sampleview2"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
-    xmlns:f="sap.ui.layout.form" displayBlock="true">
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true">
 
-    <Page >
+    <Page>
+
         <customHeader>
             <Toolbar>
-                <Button text="Back" type="Back" press="onBack" />
 
+                <Button
+                    text="Back"
+                    type="Back"
+                    press="onBack" />
 
                 <ToolbarSpacer />
+
                 <Title text="Customer Contract Creation" />
-                <ToolbarSpacer />
 
+                <ToolbarSpacer />
 
                 <Button icon="sap-icon://home" type="Emphasized" />
                 <Button icon="sap-icon://document" type="Emphasized" />
                 <Button icon="sap-icon://edit" type="Emphasized" />
-                <Button icon="sap-icon://action" type="Emphasized" press="onAction"/>
+                <Button
+                    icon="sap-icon://action"
+                    type="Emphasized"
+                    press="onAction" />
 
             </Toolbar>
         </customHeader>
 
         <content>
-            <HBox justifyContent="SpaceBetween" width="100%" >
 
-               
-                <Button text="Contract" type="Success" />
-                <Button text="Line Item 1" type="Emphasized" class="sapUiSmallMarginBegin" />
-                <Button text="Line Item 2" type="Emphasized" class="sapUiSmallMarginBegin" />
-                <Button text="Line Item 3" type="Emphasized" class="sapUiSmallMarginBegin" />
-                <Button text="Line Item 4" type="Emphasized" class="sapUiSmallMarginBegin" />
-                <Button text="Line Item 5" type="Emphasized" class="sapUiSmallMarginBegin" />
-                
+            <!-- TOP BUTTONS -->
+
+            <HBox
+                justifyContent="Center"
+                width="100%"
+                class="sapUiMediumMarginTop">
+
+                <Button
+                    text="Contract"
+                    type="Success"
+                    press="onContractPress" />
+
+                <Button
+                    text="Line Item 1"
+                    type="Emphasized"
+                    class="sapUiSmallMarginBegin"
+                    press="onLineItem1Press" />
+
+                <Button
+                    text="Line Item 2"
+                    type="Emphasized"
+                    class="sapUiSmallMarginBegin"
+                    press="onLineItem2Press" />
+
+                <Button
+                    text="Line Item 3"
+                    type="Emphasized"
+                    class="sapUiSmallMarginBegin" />
+
+                <Button
+                    text="Line Item 4"
+                    type="Emphasized"
+                    class="sapUiSmallMarginBegin" />
+
+                <Button
+                    text="Line Item 5"
+                    type="Emphasized"
+                    class="sapUiSmallMarginBegin" />
 
             </HBox>
 
+            <!-- CONTRACT SIMPLE FORM -->
 
-            <l:Grid defaultSpan="L6 M6 S12" class="sapUiSmallMarginTop">
+            <VBox visible="{viewModel>/showContract}">
 
+                <l:Grid
+                    defaultSpan="L6 M6 S12"
+                    class="sapUiSmallMarginTop">
 
-                <f:SimpleForm layout="ResponsiveGridLayout">
+                    <!-- LEFT FORM -->
 
-                    <Label text="Valid From" required="true" />
-                    <DatePicker value="6/11/2025" />
+                    <f:SimpleForm layout="ResponsiveGridLayout">
 
-                    <Label text="Sold To Name" required="true" />
-                    <Input />
+                        <Label text="Valid From" required="true" />
+                        <DatePicker value="6/11/2025" />
 
-                    <Label text="Sold To Address" />
-                    <Input />
+                        <Label text="Sold To Name" required="true" />
+                        <Input />
 
-                    <Label text="Sold To State" />
-                    <Select />
+                        <Label text="Sold To Address" />
+                        <Input />
 
-                    <Label text="Payer Number" />
-                    <Input />
+                        <Label text="Sold To State" />
+                        <Select />
 
-                    <Label text="Ship To / Job Name" required="true" />
-                    <Input />
+                        <Label text="Payer Number" />
+                        <Input />
 
-                    <Label text="PO Number" required="true" />
-                    <Input />
+                        <Label text="Ship To / Job Name" required="true" />
+                        <Input />
 
-                    <Label text="Ship To Address" />
-                    <Input />
+                        <Label text="PO Number" required="true" />
+                        <Input />
 
-                    <Label text="Ship To State" required="true" />
-                    <Select />
+                        <Label text="Ship To Address" />
+                        <Input />
 
-                    <Label text="County / District" required="true" />
-                    <Input />
+                        <Label text="Ship To State" required="true" />
+                        <Select />
 
-                    <Label text="Means of Transportation Type" required="true" />
-                    <Select />
+                    </f:SimpleForm>
 
-                    <Label text="Sales Office" required="true" />
-                    <Select />
+                    <!-- RIGHT FORM -->
 
-                    <Label text="Sales Organization" required="true" />
-                    <Select />
+                    <f:SimpleForm layout="ResponsiveGridLayout">
 
-                    <Label text="Incoterms" required="true" />
-                    <Select />
+                        <Label text="Valid To" required="true" />
+                        <DatePicker value="12/31/2025" />
 
-                    <Label text="Currency" />
-                    <Select />
+                        <Label text="Sold To Number" />
+                        <Input />
 
-                    <Label text="Invoice Text" />
-                    <Input />
+                        <Label text="Sold To City" />
+                        <Input />
 
-                </f:SimpleForm>
+                        <Label text="Sold To Zip Code" />
+                        <Input />
 
+                        <Label text="Bill To Number" />
+                        <Input />
 
-                <f:SimpleForm layout="ResponsiveGridLayout">
+                        <Label text="Plan Name" />
+                        <Select />
 
-                    <Label text="Valid To" required="true" />
-                    <DatePicker value="12/31/10000" />
+                        <Label text="Job Number" />
+                        <Input />
 
-                    <Label text="Sold To Number" />
-                    <Input />
+                        <Label text="Ship To City" />
+                        <Input />
 
-                    <Label text="Sold To City" />
-                    <Input />
+                        <Label text="Ship To Zip Code" />
+                        <Input />
 
-                    <Label text="Sold To Zip Code" />
-                    <Input />
+                    </f:SimpleForm>
 
-                    <Label text="Bill To Number" />
-                    <Input />
+                </l:Grid>
 
-                    <Label text="Plan Name" />
-                    <Select />
+            </VBox>
 
-                    <Label text="Job Number" />
-                    <Input />
+            <!-- TABLE SECTION -->
 
-                    <Label text="Ship To City" required="true" />
-                    <Input />
+            <VBox visible="{viewModel>/showTable}">
 
-                    <Label text="Ship To Zip Code" required="true" />
-                    <Input />
+                <Table
+                    inset="false"
+                    items="{/salesOrders}"
+                    class="sapUiMediumMarginTop">
 
-                    <Label text="Country" required="true" />
-                    <Select />
+                    <columns>
 
-                    <Label text="Taxable" />
-                    <Switch />
+                        <Column>
+                            <Text text="Order ID" />
+                        </Column>
 
-                    <Label text="Sales Group" required="true" />
-                    <Select />
+                        <Column>
+                            <Text text="Customer" />
+                        </Column>
 
-                    <Label text="Distribution Channel" required="true" />
-                    <Select />
+                        <Column>
+                            <Text text="Material" />
+                        </Column>
 
-                    <Label text="Split Criteria" required="true" />
-                    <Select />
+                        <Column>
+                            <Text text="Quantity" />
+                        </Column>
 
-                    <Label text="Texas Lien Info" />
-                    <Select />
+                        <Column>
+                            <Text text="Amount" />
+                        </Column>
 
-                    <Label text="POD Relevant" />
-                    <Switch />
+                    </columns>
 
-                </f:SimpleForm>
+                    <items>
 
-            </l:Grid>
+                        <ColumnListItem>
 
+                            <cells>
 
-            <Toolbar >
+                                <Text text="{OrderId}" />
+                                <Text text="{Customer}" />
+                                <Text text="{Material}" />
+                                <Text text="{Quantity}" />
+                                <Text text="{Amount}" />
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+            </VBox>
+
+            <!-- LIST REPORT SECTION -->
+
+            <VBox visible="{viewModel>/showList}">
+
+                <List
+                    items="{/salesOrders}"
+                    class="sapUiMediumMarginTop">
+
+                    <StandardListItem
+                        title="{Customer}"
+                        description="{Material}"
+                        info="{Amount}" />
+
+                </List>
+
+            </VBox>
+
+            <!-- FOOTER BUTTONS -->
+
+            <Toolbar>
+
                 <Button text="Save" type="Reject" />
+
                 <ToolbarSpacer />
-                <Button text="Save As Template" type="Reject" class="sapUiSmallMarginBegin" />
+
+                <Button
+                    text="Save As Template"
+                    type="Reject" />
+
                 <ToolbarSpacer />
 
-                <Button text="Preview" type="Reject" class="sapUiSmallMarginBegin" />
-                <Button text="Submit to Admin" enabled="false" class="sapUiSmallMarginBegin" />
-                <Button text="Submit To Specialist" type="Reject" class="sapUiSmallMarginBegin" />
+                <Button
+                    text="Preview"
+                    type="Reject" />
 
+                <Button
+                    text="Submit to Admin"
+                    enabled="false" />
 
+                <Button
+                    text="Submit To Specialist"
+                    type="Reject" />
 
             </Toolbar>
 
         </content>
 
     </Page>
+
 </mvc:View>
