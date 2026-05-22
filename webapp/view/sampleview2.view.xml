@@ -44,7 +44,7 @@
 
                 <Button
                     text="Contract"
-                    type="Success"
+                    type="Emphasized"
                     press="onContractPress" />
 
                 <Button
